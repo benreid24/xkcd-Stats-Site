@@ -1,3 +1,13 @@
+<?php
+	include("util/sql.php");
+	include("util/display.php");
+	$db = connect_to_db();
+	
+	//Fetch top 20 comics
+	
+?>
+
+
 <!DOCTYPE html>
 <html>
 
