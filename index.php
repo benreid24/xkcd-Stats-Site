@@ -4,7 +4,7 @@
 	$db = connect_to_db();
 	
 	//Fetch top 20 comics
-	
+	$comics = get_top_comics($db, 20);
 ?>
 
 
@@ -17,7 +17,9 @@
 
 <body>
 	<h1>xkcd Reddit Stats</h1>
-	<p>Eventually I will deploy the website for xkcd Reddit stats here</p>
+	<?php
+		print_top_comics($comics);
+	?>
 </body>
 
 </html>
