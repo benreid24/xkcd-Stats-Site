@@ -16,15 +16,19 @@
 
 <head>
 	<title>xkcd Reddit Stats</title>
+	
 	<link rel="stylesheet" href="assets/table.css">
+	<link rel="stylesheet" href="assets/main.css">
 </head>
 
 <body>
-	<h1>xkcd Reddit Stats</h1>
-	<?php
-		print_stats_blurb($stats);
-		print_top_comics($comics);
-	?>
+	<div class="content">
+		<h1>xkcd Reddit Stats</h1>
+		<?php
+			print_stats_blurb($stats);
+			print_top_comics($comics);
+		?>
+	</div>
 </body>
 
 </html>

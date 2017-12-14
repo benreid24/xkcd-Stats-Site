@@ -17,6 +17,8 @@ function get_top_comics($db, $lim = 20) {
 		$comic = [
 			"Id" => $row["Comic"],
 			"Count" => $row["ReferenceCount"],
+			"Percent" => $row["Percent"],
+			"StdDevs" => $row["StdDevs"],
 			"Title" => $row["Title"],
 			"Link" => "https://xkcd.com/".$row["Comic"]
 		];

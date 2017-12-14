@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+body {
+  background-color: #2e84dc;
+  color: white;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  max-width: 50%;
+  padding-left: 25%;
+}
+
+p {
+	text-align: left;
+	text-indent: 12px;
+}
+
+.content {
+	text-align: center;
+}
+
+.stat {
+	background: #25fc54;
+	color: black;
+	border-radius: 10px;
+}
