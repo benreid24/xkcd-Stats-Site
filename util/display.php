@@ -27,7 +27,7 @@ function print_stats_blurb($stats) {
 	$totalPosters = $stats["UniquePosters"];
 	$totalSubs = $stats["UniqueSubs"];
 	$totalComics = $stats["UniqueComics"];
-	echo "<p>So far <span class=\"stat\">$totalRefs</span> references to xkcd have been found. <span class=\"stat\">$totalComics</span> unique comics have";
+	echo "<p>So far <span class=\"stat\">$totalRefs</span> references to xkcd have been found (as of 12/13/2017). <span class=\"stat\">$totalComics</span> unique comics have";
     echo " been referenced by <span class=\"stat\">$totalPosters</span> unique users on <span class=\"stat\">$totalSubs</span> unique subreddits. There are";
 	echo " an average of <span class=\"stat\">$avg</span> references per xkcd comic, with a standard deviation of <span class=\"stat\">$stdDev</span> </p>";
 }
