@@ -6,6 +6,9 @@
 	//Fetch top 20 comics
 	$comics = get_top_comics($db, 20);
 	
+	//Fetch top 10 posters
+	$posters = get_top_posters($db, 10);
+	
 	//Fetch general stats
 	$stats = get_stats($db);
 ?>
@@ -28,6 +31,11 @@
 			print_stats_blurb($stats);
 			print_top_comics($comics);
 		?>
+		<p><a href="#">See more</a></p>
+		<?php
+			print_top_posters($posters);
+		?>
+		<p><a href="#">See more</a></p>
 	</div>
 </body>
 

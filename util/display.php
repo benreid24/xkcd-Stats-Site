@@ -2,7 +2,8 @@
 
 function print_top_comics($comics) {
 	$rank = 1;
-	echo "<div class=\"table-title\"><h3>Top 20 xkcd's on Reddit</h3></div>";
+	$count = sizeof($comics);
+	echo "<div class=\"table-title\"><h3>Top $count xkcd's on Reddit</h3></div>";
 	echo "<table class=\"table-fill\">\n";
 	echo "<thead>\n<tr> <th class=\"text-left\">Rank</th> <th class=\"text-left\">Comic</th>";
 	echo "<th class=\"text-left\">Count</th> <th class=\"text-left\">Percent of References</th>";
@@ -17,8 +18,27 @@ function print_top_comics($comics) {
 		echo "</tr>\n";
 		$rank = $rank + 1;
 	}
+	echo "</tbody></table>\n";
+}
+
+function print_top_posters($posters) {
+	$rank = 1;
+	$count = sizeof($posters);
+	echo "<div class=\"table-title\"><h3>Top $count referencers of xkcd</h3></div>";
+	echo "<table class=\"table-fill\">\n";
+	echo "<thead>\n<tr> <th class=\"text-left\">Rank</th> <th class=\"text-left\">Name</th>";
+	echo "<th class=\"text-left\">Count</th></tr></thead>\n<tbody>\n";
+	foreach ($posters as $poster) {
+		echo "<tr>";
+		echo "<td>$rank</td>";
+		echo "<td class=\"text-left\">".$poster["Name"]."</td>";
+		echo "<td class=\"text-left\">".$poster["Count"]."</td>";
+		echo "</tr>";
+		$rank = $rank + 1;
+	}
 	echo "</tbody></table>";
 }
+	
 
 function print_stats_blurb($stats) {
 	$totalRefs = $stats["TotalReferences"];

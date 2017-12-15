@@ -41,4 +41,17 @@ function get_stats($db) {
 	return $stats;
 }
 
+function get_top_posters($db, $lim = 10) {
+	$posters = [];
+	$proxy = $db->query("SELECT * FROM poster_counts ORDER BY ReferenceCount DESC LIMIT ".$lim);
+	while ($row = $proxy->fetch_assoc()) {
+		$poster = [
+			"Name" => $row["Name"],
+			"Count" => $row["ReferenceCount"]
+		];
+		$posters[] = $poster;
+	}
+	return $posters;
+}
+
 ?>
