@@ -54,4 +54,55 @@ function print_stats_blurb($stats) {
 	echo " an average of <span class=\"stat\">$avg</span> references per xkcd comic, with a standard deviation of <span class=\"stat\">$stdDev</span> </p>";
 }
 
+function print_subreddit_chart($subs, $other_percent) {
+	$other_percent = number_format((float)$other_percent, 4, ".", "");
+	$main_percent = 100-$other_percent;
+	echo "<p>Below is a breakdown of Subreddits whose total references to xkcd make up more than <span class=\"stat\">1%</span>";
+	echo " of all references to xkcd. Subreddits with contributions of less than 1% make up <span class=\"stat\">$other_percent%</span>";
+	echo " of the references to xkcd. The chart below represents the breakdown of the remaining <span class=\"stat\">$main_percent%</span> of references</p>";
+	echo "<div id=\"subreddits\" style=\"min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto; background: #2e84dc; color: white;\"></div>";
+	echo "<script type=\"text/javascript\">
+
+			Highcharts.chart('subreddits', {
+				chart: {
+					plotBackgroundColor: 'white',
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Subreddit Breakdown'
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: true,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						}
+					}
+				},
+				series: [{
+					name: 'Brands',
+					colorByPoint: true,
+					data: [";
+					
+		foreach ($subs as $sub) {
+			$name = $sub["Name"];
+			$percent = $sub["Percent"];
+			echo "{ name: '$name', y: $percent }, ";
+		}			
+		
+		echo "]
+				}]
+			});
+		</script>";
+}
 ?>

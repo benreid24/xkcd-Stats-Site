@@ -66,4 +66,17 @@ function get_top_posters($db, $lim = 10) {
 	return $posters;
 }
 
+function get_subreddits($db) {
+	$subs = [];
+	$proxy = $db->query("SELECT * FROM subreddits WHERE NormPercent IS NOT NULL");
+	while ($row = $proxy->fetch_assoc()) {
+		$sub = [
+			"Name" => $row["Name"],
+			"Percent" => $row["NormPercent"]
+		];
+		$subs[] = $sub;
+	}
+	return $subs;
+}
+
 ?>

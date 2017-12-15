@@ -11,6 +11,9 @@
 	
 	//Fetch general stats
 	$stats = get_stats($db);
+	
+	//Fetch subreddit breakdown
+	$subs = get_subreddits($db);
 ?>
 
 
@@ -22,6 +25,9 @@
 	
 	<link rel="stylesheet" href="assets/table.css">
 	<link rel="stylesheet" href="assets/main.css">
+	
+	<script src="assets/highcharts/highcharts.js"></script>
+	<script src="assets/highcharts/modules/exporting.js"></script>
 </head>
 
 <body>
@@ -36,6 +42,10 @@
 			print_top_posters($posters);
 		?>
 		<p><a href="posters.php" class="link">See more</a></p>
+		<?php
+			print_subreddit_chart($subs, $stats["LessOneRefSubs"]);
+		?>
+		
 	</div>
 </body>
 
