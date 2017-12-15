@@ -34,10 +34,6 @@ function get_stats($db) {
 	while ($row = $statsProxy->fetch_assoc()) {
 		$stats[$row["Name"]] = $row["Value"];
 	}
-	//TODO - Move this into data cruncher
-	$count = $db->query("SELECT count(*) as count FROM comic_counts WHERE ReferenceCount>0");
-	$result = $count->fetch_assoc();
-	$stats["UniqueComics"] = $result["count"];
 	return $stats;
 }
 
