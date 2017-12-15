@@ -24,6 +24,14 @@ p {
 	color: white;
 }
 
+.data-links {
+	color: #ddddff;
+}
+
+.data-links a {
+	color: #ddddff;
+}
+
 .content {
 	text-align: center;
 }

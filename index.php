@@ -35,6 +35,9 @@
 		<h1>xkcd Reddit Stats</h1>
 		<?php
 			print_stats_blurb($stats);
+		?>
+		<span class="data-links"><h4><a href="data/ranking.csv" class="data-links">Comic Ranking CSV</a> | <a href="rawdata.zip" class="data-links">Raw Data ZIP</a></h4></span>
+		<?php
 			print_top_comics($comics);
 		?>
 		<p><a href="comics.php" class="link">See more</a></p>
