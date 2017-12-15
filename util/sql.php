@@ -9,10 +9,18 @@ function connect_to_db() {
 
 function get_top_comics($db, $lim = 20) {
 	$comics = [];
-	$topComicsProxy = $db->query("SELECT * FROM  `comic_counts` INNER JOIN
-								  (SELECT Comic AS id, Title FROM comics) AS titles
-								  ON titles.id = comic_counts.Comic WHERE ReferenceCount > 0
-								  ORDER BY ReferenceCount DESC LIMIT ".$lim);
+	
+	if (!is_numeric($lim) or $lim<0)
+		return $comics;
+	
+	$query = "SELECT * FROM  `comic_counts` INNER JOIN
+			  (SELECT Comic AS id, Title FROM comics) AS titles
+			  ON titles.id = comic_counts.Comic WHERE ReferenceCount > 0
+			  ORDER BY ReferenceCount DESC";
+	if ($lim>0)
+		$query = $query." LIMIT $lim";
+	
+	$topComicsProxy = $db->query($query);
 	while ($row = $topComicsProxy->fetch_assoc()) {
 		$comic = [
 			"Id" => $row["Comic"],
@@ -39,7 +47,15 @@ function get_stats($db) {
 
 function get_top_posters($db, $lim = 10) {
 	$posters = [];
-	$proxy = $db->query("SELECT * FROM poster_counts ORDER BY ReferenceCount DESC LIMIT ".$lim);
+	
+	if (!is_numeric($lim) or $lim<0)
+		return $posters;
+	
+	$query = "SELECT * FROM poster_counts ORDER BY ReferenceCount DESC";
+	if ($lim>0)
+		$query = $query." LIMIT $lim";
+	
+	$proxy = $db->query($query);
 	while ($row = $proxy->fetch_assoc()) {
 		$poster = [
 			"Name" => $row["Name"],

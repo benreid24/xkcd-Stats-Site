@@ -16,6 +16,14 @@ p {
 	text-indent: 12px;
 }
 
+.link {
+	color: white;
+}
+
+.link:visited {
+	color: white;
+}
+
 .content {
 	text-align: center;
 }

@@ -31,11 +31,11 @@
 			print_stats_blurb($stats);
 			print_top_comics($comics);
 		?>
-		<p><a href="#">See more</a></p>
+		<p><a href="comics.php" class="link">See more</a></p>
 		<?php
 			print_top_posters($posters);
 		?>
-		<p><a href="#">See more</a></p>
+		<p><a href="posters.php" class="link">See more</a></p>
 	</div>
 </body>
 
