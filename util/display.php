@@ -57,8 +57,8 @@ function print_stats_blurb($stats) {
 function print_subreddit_chart($subs, $other_percent) {
 	$other_percent = number_format((float)$other_percent, 4, ".", "");
 	$main_percent = 100-$other_percent;
-	echo "<p>Below is a breakdown of Subreddits whose total references to xkcd make up more than <span class=\"stat\">1%</span>";
-	echo " of all references to xkcd. Subreddits with contributions of less than 1% make up <span class=\"stat\">$other_percent%</span>";
+	echo "<p>Below is a breakdown of Subreddits whose total references to xkcd make up more than <span class=\"stat\">0.5%</span>";
+	echo " of all references to xkcd. Subreddits with contributions of less than 0.5% make up <span class=\"stat\">$other_percent%</span>";
 	echo " of the references to xkcd. The chart below represents the breakdown of the remaining <span class=\"stat\">$main_percent%</span> of references</p>";
 	echo "<div id=\"subreddits\" style=\"min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto; background: #2e84dc; color: white;\"></div>";
 	echo "<script type=\"text/javascript\">
