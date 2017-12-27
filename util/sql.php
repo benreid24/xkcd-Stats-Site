@@ -68,7 +68,7 @@ function get_top_posters($db, $lim = 10) {
 
 function get_subreddits($db) {
 	$subs = [];
-	$proxy = $db->query("SELECT * FROM subreddits WHERE NormPercent IS NOT NULL");
+	$proxy = $db->query("SELECT * FROM subreddits WHERE NormPercent IS NOT NULL ORDER BY NormPercent DESC");
 	while ($row = $proxy->fetch_assoc()) {
 		$sub = [
 			"Name" => $row["Name"],
